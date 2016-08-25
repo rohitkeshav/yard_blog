@@ -1,10 +1,11 @@
 from django.conf.urls import url
 from rest_framework import routers
-from .views import BlogViewSet
+from .views import BlogViewSet, UserViewSet
 
 router = routers.SimpleRouter()
 
 router.register(r'blog_endpoint', BlogViewSet)
+router.register(r'user_endpoint', UserViewSet)
 
 front_end_urls = []
 
