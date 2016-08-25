@@ -15,9 +15,9 @@ class Blog(Model):
         return self.blog_title
 
 
-class Tags(Model):
+class Comment(Model):
     blog_fk = ForeignKey('blog.Blog')
-    tags = CharField(max_length=20, null=True)
+    comment = CharField(max_length=200, null=True)
 
     def __unicode__(self):
-        return self.tags
+        return self.id

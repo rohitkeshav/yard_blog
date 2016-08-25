@@ -1,5 +1,5 @@
-from .models import Blog
-from .serializers import BlogSerializer, UserSerializer
+from .models import Blog, Comment
+from .serializers import BlogSerializer, CommentSerializer, UserSerializer
 from django.contrib.auth.models import User
 
 from rest_framework.viewsets import ModelViewSet
@@ -11,6 +11,13 @@ class BlogViewSet(ModelViewSet):
 
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+
+
+class CommentViewSet(ModelViewSet):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
 
 class UserViewSet(ModelViewSet):
