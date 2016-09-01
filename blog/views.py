@@ -1,6 +1,6 @@
 from .models import Blog, Comment
-from .permissions import IsOwnerOrReadOnly
 from .serializers import BlogSerializer, CommentSerializer, UserSerializer
+
 from django.contrib.auth.models import User
 
 from rest_framework.viewsets import ModelViewSet
@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 
 
 class BlogViewSet(ModelViewSet):
-    permission_classes = (IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
